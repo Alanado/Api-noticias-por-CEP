@@ -1,0 +1,21 @@
+{
+  "name": "api-noticias-por-cep",
+  "version": "1.0.0",
+  "description": "Um projeto de Api que mostra notícias com base no CEP;",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --watch src ./src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "brasilapi": "^1.0.0",
+    "date-fns": "^2.30.0",
+    "express": "^4.18.2",
+    "newsapi": "^2.4.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
