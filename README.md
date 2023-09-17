@@ -1,4 +1,4 @@
- # Api de notícias.
+ # Api de notícias
 
 ## Sobre
 Um projeto de Api que mostra artigos e notícias de variados assuntos, filtrados por palavras-chave. 
