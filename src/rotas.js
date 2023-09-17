@@ -4,6 +4,6 @@ const artigosENoticias = require("./controladores/noticias");
 const rotas = express();
 
 
-rotas.get("/pesquisa/global", verificacoesEverthing, artigosENoticias);
+rotas.get("/pesquisa", verificacoesEverthing, artigosENoticias);
 
 module.exports = rotas;
