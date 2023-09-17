@@ -1,6 +1,3 @@
-const { BrasilAPI } = require("brasilapi");
-const brasilApi = new BrasilAPI();
-
 const NewAPI = require("newsapi");
 const newsApi = new NewAPI("dcafbc9754714e4cb2adb0719c00dcad");
 
@@ -8,14 +5,19 @@ const { format, parseISO } = require("date-fns");
 
 
 async function artigosENoticias(req, res) {
-    const { assunto, pagina } = req.query;
+    let { pagina, assunto } = req.query;
+
+    if (!pagina) {
+        pagina = 1;
+    }
 
     try {
         const busca = await newsApi.v2.everything({
             q: assunto,
-            language: "pt",
+            language: 'pt',
+            sortBy: 'relevancy',
             page: Number(pagina),
-            pageSize: 7
+            pageSize: 5
         });
 
 
@@ -31,13 +33,16 @@ async function artigosENoticias(req, res) {
         })
 
 
-        return res.status(200).json(formatacaoArtigos);
+        return res.status(200).json({
+            resultados_encontrados: busca.totalResults,
+            noticias: formatacaoArtigos
+        });
 
     } catch (error) {
         return res.status(500).json({ erro: error.message });
     }
 }
 
-module.exports = artigosENoticias;
 
+module.exports = artigosENoticias;
 
