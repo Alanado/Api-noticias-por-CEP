@@ -4,7 +4,7 @@
   "description": "Um projeto de Api que mostra notícias com base no CEP;",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon --watch src ./src/index.js"
+    "start": " node ./src/index.js"
   },
   "keywords": [],
   "author": "",
